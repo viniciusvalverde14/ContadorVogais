@@ -1,28 +1,61 @@
-let vogais = ['a', 'e', 'i', 'o', 'u']
-let consoantes = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", 
-                  "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
-let texto = "Vinicius Valverde"
-texto = texto.toLocaleLowerCase()
-let arrayLetras = texto.split("")
-let arrayVogais = []
-let arrayConsoantes = []
+let v  = ['a', 'e',
+        'i', 'o', 'u'];
 
-for (let i = 0; i < arrayLetras.length; i++){
-    if(vogais.includes(arrayLetras[i])){
-        arrayVogais.push(arrayLetras[i]);
-    }
+let consoantes = ["b", "c", "d", "f", "g", 
+                "h", "j", "k", "l", "m", 
+                "n", "p", "q", "r", "s", "t",
+                 "v", "w", "x", "y", "z"]
+
+let espaços = [" "];
+
+let especiais = [
+    "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
+    "-", "=", "[", "]", "{", "}", ";", ":", "'", "\"", "\\", "|",
+    ",", ".", "<", ">", "/", "?"]
+
+let texto = "Eu *amo muito* minha namorada!!";
+
+texto = texto.toLowerCase();
+
+let minusculo = texto.split("");
+
+let contadorV = [];
+
+let contadorC = [];
+
+let contadorE = [];
+
+let contadorX = [];
+
+for(let i = 0; i < minusculo.length; i++){
+  if(v.includes(minusculo[i])){
+    contadorV.push(minusculo[i]);
+  }
 }
 
-for (let i = 0; i < arrayLetras.length; i++){
-    if(consoantes.includes(arrayLetras[i])){
-        arrayConsoantes.push(arrayLetras[i]);
-    }
+for(let i = 0; i < minusculo.length; i++){
+  if(consoantes.includes(minusculo[i])){
+    contadorC.push(minusculo[i]);
+  }
 }
 
+for(let i = 0; i < minusculo.length; i++){
+    if(espaços.includes(minusculo[i])){
+      contadorE.push(minusculo[i]);
+    }
+  }
 
+  for(let i = 0; i < minusculo.length; i++){
+    if(especiais.includes(minusculo[i])){
+      contadorX.push(minusculo[i]);
+    }
+  }
 
-   
-console.log("Texto original: " + texto);
-console.log("Vogais encontradas: " + arrayVogais.toString());
-console.log("Total de vogais foram: " + arrayVogais.lenght);
-console.log("Consoantes encontradas: " + arrayConsoantes);
+console.log("Texto original:" + texto);
+console.log("Consoantes encontradas: " + contadorC.toString());
+console.log("Total de Consoantes: " + contadorC.length);
+console.log("Vogais encontradas: " + contadorV.toString());
+console.log("Total de Vogais: " + contadorV.length);
+console.log("Total de espaços: " + contadorE.length);
+console.log("Caracteres especiais: " + contadorX.toString());
+console.log("Total de especiais: " + contadorX.length);
